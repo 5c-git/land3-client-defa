@@ -1,0 +1,271 @@
+.header {
+  @include DesktopBody1-regular;
+  display: contents;
+
+  &__top {
+    position: relative;
+    z-index: 6;
+    background-color: $Primary-1;
+  }
+
+  &__top-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 40px;
+
+    @media(max-width: $phone) {
+      gap: 20px;
+    }
+  }
+
+  &__logo {
+    width: 100px;
+    flex-shrink: 0;
+
+    @media(max-width: $phone) {
+      width: 80px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__search {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 13px;
+    padding-right: 14px;
+    padding-bottom: 13px;
+    padding-left: 14px;
+    border: 1px solid $Secondary-4;
+    border-radius: 4px;
+    color: $Primary-6;
+    background-color: $Primary-1;
+    transition: border-color $transition-time;
+    text-decoration: none;
+
+    @media(max-width: $phone) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    &:hover {
+      @media(min-width: $desktop-only) {
+        border-color: $Secondary-5;
+      }
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: $Secondary-6;
+      flex-shrink: 0;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 20px;
+
+    @media(max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+    width: 24px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    color: currentColor;
+    border: 0;
+    background: 0 0;
+    user-select: none;
+
+    @media(max-width: $tablet) {
+      display: flex;
+    }
+
+    span {
+      position: relative;
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      transition-delay: $transition-time;
+      color: currentColor;
+      background: currentColor;
+      border-radius: 2px;
+      vertical-align: bottom;
+
+      &:before {
+        position: absolute;
+        top: 6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        transition: top $transition-time $transition-time, transform $transition-time, width $transition-time $transition-time;
+        background: currentColor;
+        border-radius: 2px;
+        transform-origin: 50% 50%;
+        content: '';
+      }
+
+      &:after {
+        position: absolute;
+        top: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        transition: top $transition-time $transition-time, transform $transition-time, width $transition-time $transition-time;
+        background: currentColor;
+        border-radius: 2px;
+        transform-origin: 50% 50%;
+        content: '';
+      }
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    transition: color $transition-time;
+
+    &:hover {
+      @media(min-width: $desktop-only) {
+        color: $Primary-5;
+      }
+    }
+
+    &:active {
+      color: $Secondary-8;
+    }
+  }
+
+  &__main {
+    position: sticky;
+    z-index: 5;
+    top: 0;
+    transition:
+      transform $transition-time,
+      filter $transition-time,
+      background-color $transition-time;
+
+    @media(max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__main-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 60px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__mobile-nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: calc(100dvh - 60px);
+    flex-direction: column;
+    background-color: $Primary-1;
+    transition:
+      transform $transition-time $transition-time,
+      visibility $transition-time,
+      opacity $transition-time;
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    pointer-events: auto;
+  }
+
+  &--fixed {
+
+    .header__main {
+      @include Shadow-L;
+      background-color: $Primary-1;
+    }
+  }
+
+  &--hidden {
+
+    .header__main {
+      @include Shadow-L;
+      transform: translateY(-120%);
+    }
+  }
+
+  &--dropdown {
+    @media(max-width: $tablet) {
+
+      .header {
+        &__burger {
+
+          span {
+            width: 24px;
+            background-color: transparent;
+            transition:
+              width $transition-time $transition-time,
+              background-color $transition-time;
+
+            &:before {
+              top: 0;
+              transition: top 0.3s, transform 0.3s 0.3s, width 0.3s 0.3s;
+              transform: rotate3d(0, 0, 1, 45deg);
+            }
+
+            &:after {
+              top: 0;
+              transition: top 0.3s, transform 0.3s 0.3s, width 0.3s 0.3s;
+              transform: rotate3d(0, 0, 1, -45deg);
+            }
+          }
+        }
+
+        &__mobile-nav {
+          display: flex;
+          transition:
+            visibility $transition-time,
+            opacity $transition-time;
+          visibility: visible;
+          opacity: 1;
+          // transform: translateX(0);
+        }
+      }
+    }
+  }
+}

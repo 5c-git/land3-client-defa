@@ -1,0 +1,10 @@
+mixin video(props)
+  div.video
+    div.video__wrapper
+      a(href="https://youtu.be/" + props.link target='_blank').video__link
+        picture
+          source(srcset='' type="image/webp")
+          img(src='' alt='').video__media
+      button(type="button" aria-label="Запустить видео").video__button
+    if(props.text)
+      p=props.text

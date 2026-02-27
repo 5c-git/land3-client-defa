@@ -1,0 +1,19 @@
+mixin intro(props)
+
+  if props.main
+    section.intro.intro--main
+      div.intro__background
+      div.container
+        div.article.intro__wrapper
+          h1 We are #[em.wave-text Defa group]
+          p An international seafood company with over 30 years of experience, delivering high-quality fish and seafood products through strong global partnerships and a passion for excellence.
+          img(src="./assets/images/intro-1.png", alt="")
+
+  if props.advantages
+    section.intro.intro--advantages
+      div.intro__background
+      div.container
+        div.article.intro__wrapper
+          h1 Why Choose #[em.wave-text Defa group]
+          p Our experience, scale and operational excellence are built on decades of industry expertise. Below are four key advantages that define Defa group as a strong market leader and clearly set us apart from the competition.
+          img(src="./assets/images/intro-2.png", alt="")

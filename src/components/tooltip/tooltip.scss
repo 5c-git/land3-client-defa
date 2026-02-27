@@ -1,0 +1,291 @@
+.tooltip {
+  color: $Primary-6;
+
+  &__button {
+    position: relative;
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    outline: none;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    svg {
+      display: block;
+      fill: #3b73b8;
+      flex-shrink: 0;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+
+    @media(max-width: $phone) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+      visibility: visible;
+    }
+
+    &[aria-hidden='true'] {
+      transition: opacity 0.3s 0.3s, visibility 0.3s;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+
+      .tooltip__main {
+        transform: unset;
+
+        @media(max-width: $phone) {
+          transform: translateY(100%);
+        }
+      }
+    }
+  }
+
+  &__overlay {
+    @media(max-width: $phone) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background-color: #888888;
+      opacity: 0.5;
+    }
+  }
+
+  &__main {
+    @media(max-width: $phone) {
+      position: relative;
+      display: flex;
+      width: 100%;
+      // height: 50vh;
+      max-height: 100vh;
+      flex-direction: column;
+      border-radius: 16px 16px 0 0;
+      transition: transform 0.5s, border-radius 0.5s;
+      box-shadow: 0 -5px 30px rgba($color: #000000, $alpha: 15%);
+      background: #ffffff;
+      overflow-y: hidden;
+      // transform: translateY(0);
+    }
+
+    &:not(.not-selectable) {
+      transition: transform 0.5s, border-radius 0.5s, height 0.5s;
+    }
+
+    &--full {
+      border-radius: 0;
+    }
+
+    &[aria-hidden='true'] {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+
+      @media(min-width: $desktop) {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .bottom-sheet__main {
+        transform: translateY(100%);
+
+        @media(min-width: $desktop) {
+          transform: unset;
+        }
+      }
+    }
+  }
+
+  &__drag {
+    display: none;
+
+    @media(max-width: $phone) {
+      display: unset;
+      margin-right: auto;
+      margin-left: auto;
+      padding-top: 12px;
+      padding-right: 20px;
+      padding-bottom: 12px;
+      padding-left: 20px;
+      cursor: grab;
+    }
+
+    span {
+      display: block;
+      width: 40px;
+      height: 4px;
+      border-radius: 8px;
+      background-color: $Secondary-6;
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: none;
+
+    @media(max-width: $phone) {
+      display: unset;
+      padding-top: 15px;
+      padding-right: 16px;
+      padding-bottom: 15px;
+      padding-left: 16px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    z-index: 5;
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: $Secondary-2;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+
+    span {
+      position: relative;
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+      background: transparent;
+      vertical-align: bottom;
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: currentcolor;
+        content: '';
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: currentcolor;
+        content: '';
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &__title {
+    @include DesktopH3-bold;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+
+    em {
+      font-style: normal;
+    }
+  }
+
+  &__content {
+    @include Shadow-XS;
+    display: flex;
+    flex-direction: column;
+    padding-top: 14px;
+    padding-right: 16px;
+    padding-bottom: 14px;
+    padding-left: 16px;
+    border-radius: 4px;
+    background-color: $Primary-1;
+    gap: 16px;
+    overflow-y: auto;
+
+    @media(max-width: $phone) {
+      padding-bottom: 48px;
+      box-shadow: unset;
+    }
+
+    p {
+      @include DesktopBody3-regular;
+      margin: 0;
+
+      @media(max-width: $phone) {
+        @include MobileBody1-regular;
+      }
+
+      &:not(:first-child) {
+        margin-top: 4px;
+
+        @media(max-width: $phone) {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $Primary-3 ;
+      transition:
+        color 0.3s,
+        opacity 0.3s;
+
+      &:hover {
+        @media (min-width: $desktop-only) {
+          opacity: 0.8;
+        }
+      }
+
+      &:active {
+        color: $Primary-2;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+.tippy-box {
+  position: unset;
+  background-color: unset;
+  color: inherit;
+  border-radius: unset;
+  font: inherit;
+}
+
+.tippy-content {
+  z-index: unset;
+  padding: unset;
+}

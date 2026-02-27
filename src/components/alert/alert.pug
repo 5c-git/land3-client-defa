@@ -1,0 +1,30 @@
+mixin alert(props)
+  if props.request
+    section.alert.alert--request
+      div.alert__container
+      button(type="button" arial-label="Закрыть всплывающее окно").alert__close
+        span
+
+  if props.error
+    section.alert.alert--error
+      div.alert__container #[b Ошибка!] #[br] Что-то пошло не так, повторите попытку позже.
+      button(type="button" arial-label="Закрыть всплывающее окно").alert__close
+        span
+
+  if props.blue
+    section.alert.alert--blue
+      div.alert__container #[b Заголовок уведомления] #[br] Текст уведомления, который может быть очень длинным и занимать несколько строк, например, три строки.
+      button(type="button" arial-label="Закрыть всплывающее окно").alert__close
+        span
+
+  if props.red
+    section.alert.alert--red
+      div.alert__container #[b Заголовок уведомления] #[br] Текст уведомления, который может быть очень длинным и занимать несколько строк, например, три строки.
+      button(type="button" arial-label="Закрыть всплывающее окно").alert__close
+        span
+
+  if props.star
+    section.alert.alert--star
+      div.alert__container #[b Заголовок уведомления] #[br] Текст уведомления, который может быть очень длинным и занимать несколько строк, например, три строки. А вот #[a(href='#') ссылка].
+      button(type="button" arial-label="Закрыть всплывающее окно").alert__close
+        span

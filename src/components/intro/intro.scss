@@ -1,0 +1,44 @@
+.intro {
+  position: relative;
+  margin-top: -100px;
+  padding-top: 180px;
+
+  &__title {
+    @include DesktopHeadline1;
+    margin: 0;
+    text-align: center;
+
+    em {
+      font-style: normal;
+      color: $Primary-3;
+    }
+  }
+
+  &--main {
+    .intro {
+
+      &__background {
+        position: absolute;
+        inset: 0;
+        background-color: $Secondary-18;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - 18.75vw),
+          0 100%,
+        );
+      }
+    }
+  }
+
+  &--advantages {
+    background-color: $Secondary-18;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 8.125vw),
+      50% 100%,
+      0 calc(100% - 8.125vw),
+    );
+  }
+}

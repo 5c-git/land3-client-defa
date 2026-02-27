@@ -1,0 +1,17 @@
+mixin slider(props)
+
+  section.slider
+    div.swiper.slider__swiper
+      ul.swiper-wrapper.slider__list
+
+        li.swiper-slide.slider__item
+
+
+      div.slider__scrollbar
+    div.slider__buttons
+      button(type='button' aria-label='Предыдущий слайд.').slider__button.slider__button--prev
+        svg(width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg")
+          use(href='#icon-chevron-left')
+      button(type='button' aria-label='Следующий слайд.').slider__button.slider__button--next
+        svg(width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg")
+          use(href='#icon-chevron-right')

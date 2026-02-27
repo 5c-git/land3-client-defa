@@ -1,0 +1,82 @@
+form.test
+
+  div
+    div.validator__error-container#target1
+    p.validator__description (обязательное поле - validator__required, <br><em>зовем функцию validateForm, передав селектор формы</em>)
+    input.validator__required(type='text' placeholder='placeholder' data-bouncer-target="#target1")
+
+  div
+    div.validator__error-container#target2
+    p.validator__description (e-mail - validator__mail, <br><em>зовем функцию validateForm, передав селектор формы</em>)
+    input.validator__mail(type='email' placeholder='placeholder' data-bouncer-target="#target2")
+
+  div
+    div.validator__error-container#target3
+    p.validator__description (российский телефон без библиотеки - validator__simple-phone, <br><em>зовем функцию maskSimplePhone, передав селектор формы</em>)
+    input.validator__simple-phone(type='tel' inputmode='tel' autocomplete='off' data-bouncer-target="#target3")
+
+  div
+    div.validator__error-container#target4
+    p.validator__description (российский телефон - validator__phone, <br><em>зовем функцию maskPhone, передав селектор формы</em>)
+    input.validator__phone(type='tel' inputmode='tel' autocomplete='off' data-bouncer-target="#target4")
+
+  div
+    div.validator__error-container#target5
+    div
+      p.validator__description (международный телефон(смотри внимательно разметку), <br><em>зовем функцию maskPhone, передав селектор формы</em>)
+      select.validator__country-select
+      ul.validator__country-masks
+        li.validator__country-mask(data-mask='+7 [(999) 999-99-99]' data-value='russia' data-flag='../assets/images/ru.svg' data-country='россия +7')
+        li.validator__country-mask(data-mask='+44 [99999 999999]' data-value='uk' data-flag='../assets/images/uk.png' data-country='британия +44')
+        li.validator__country-mask(data-mask='+1 [(999) 999-9999]' data-value='usa' data-flag='../assets/images/us.png' data-country='сша +1')
+      input.validator__country-phone(type='tel' inputmode='tel' autocomplete='off' data-bouncer-target="#target5")
+
+  div
+    div.validator__error-container#target6
+    p.validator__description (буквы и тире и точка, один пробел между словами, минимум 2, максиум 225 - validator__text , <br><em>зовем функцию validateForm, передав селектор формы</em>)
+    input.validator__text(type='text' placeholder='placeholder' data-bouncer-target="#target6")
+
+  div
+    div.validator__error-container#target7
+    p.validator__description (буквы, цифры, спец.симболы, многоточие, один пробел между словами, минимум 4, максиум 225 - validator__textarea , <br><em>зовем функцию validateForm, передав селектор формы</em>)
+    input.validator__textarea(type='text' placeholder='placeholder' data-bouncer-target="#target7")
+
+  div
+    div.validator__error-container#target8
+    p.validator__description (цифры - validator__number, <br><em>зовем функцию maskNumber, передав селектор формы и цифру, которая которая число(например 2 - значит максимально можно будет ввести двузначное число)</em>)
+    input.validator__number(type='text' inputmode='decimal' placeholder='placeholder' data-bouncer-target="#target8")
+
+  div
+    div.validator__error-container#targetPass1
+    p.validator__description (validator__password, пароль, <br><em>для паролей вызываем функцию validateForm, и передав селектор формы, для активации глаза вызываем функцию initPasswordEye, передав селектор формы)</em>
+    input.validator__password(type="password" name="password" maxlengt id="password" placeholder="Введите пароль" data-bouncer-target="#targetPass1")
+    button.validator__eye(type='button') глаз
+
+  div
+    div.validator__error-container#targetPass2
+    p.validator__description (повторите пароль)
+    input.validator__password(type="password" name="confirm-password" id="confirm-password" data-bouncer-match="#password" placeholder="Повторите пароль" data-bouncer-target="#targetPass2")
+    button.validator__eye(type='button') глаз
+
+  div.validator__files
+    div.validator__error-container#target9
+    label.validator__file-label(for='documents') Прикрепить файл(допустимы только jpg, png)
+      p.validator__size-warning Максимум 10 mb
+    input.validator__file-input(type='file' name='documents' id='documents' accept='image/png, image/jpeg' multiple data-bouncer-target="#target9" required)
+
+    div.validator__loaded-files
+
+
+  div
+    p.validator__description Обязательный кастомный селект(через библиотеку) <br><em>зовем функцию initSelectValidation, передав селектор формы
+    select.validator__select(name='select' required)
+      option(value='') Placeholder
+      option Value 1
+      option Value 2
+      option Value 3
+
+  //- div
+  //-   input.validator__agree(id='leg' name='leg' type='checkbox' checked)
+  //-   label.validator__legal(for='leg') Я согласен на <a href='#'>обработку моих персональных данных</a> и ознакомился с <a href='#'>политикой обработки персональных данных</a>
+
+  button(type='submit') Send

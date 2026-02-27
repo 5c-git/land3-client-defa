@@ -1,0 +1,44 @@
+{
+  "name": "webpack-pug-esbuild-starter",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve",
+    "build": "cross-env NODE_ENV=production webpack",
+    "stage": "cross-env NODE_ENV=production webpack"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^13.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
+    "esbuild": "^0.27.3",
+    "esbuild-loader": "^4.4.2",
+    "glob": "^10.3.10",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "pug": "^2.0.4",
+    "pug-loader": "^2.4.0",
+    "sass": "^1.69.5",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^4.0.0",
+    "svg-sprite-loader": "^6.0.11",
+    "thread-loader": "^4.0.4",
+    "webpack": "^5.100.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.3"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "choices.js": "^9.0.1",
+    "filepond": "^4.30.4",
+    "filepond-plugin-file-encode": "^2.1.10",
+    "filepond-plugin-file-validate-size": "^2.2.8",
+    "filepond-plugin-file-validate-type": "^1.2.8",
+    "flatpickr": "^4.6.13",
+    "formbouncerjs": "^1.4.6",
+    "gsap": "^3.13.0",
+    "inputmask": "^5.0.3",
+    "swiper": "^12.1.2",
+    "tippy.js": "^6.3.7",
+    "viewerjs": "^1.11.3"
+  }
+}

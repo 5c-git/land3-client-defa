@@ -1,0 +1,46 @@
+.mobile-nav {
+  padding-top: 20px;
+  padding-bottom: 30px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 15px;
+
+    &--row {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    flex-grow: 1;
+
+    .button {
+      width: 100%;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    gap: 10px;
+
+    svg {
+      fill: currentColor;
+      stroke: currentColor;
+      flex-shrink: 0;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+mixin tooltip(props)
+  div.tooltip
+    button(type='button').tooltip__button
+      i 
+        if props.question
+          svg(width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg")
+            use(href='#icon-question')
+        else
+          svg(width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg")
+            use(href='#icon-warning-2')
+
+    div(aria-hidden="true").tooltip__wrapper
+      div.tooltip__overlay
+
+      div.tooltip__main
+        div.tooltip__drag
+          span
+        div.tooltip__header
+          button.tooltip__close
+            span
+          if props.title
+            p.tooltip__title=props.title
+              if props.status
+                em(style='color: #1f9502;')=props.status
+        div.tooltip__content
+
+          if props.text 
+            div.tooltip__message
+              p!=props.text
+          else
+            block

@@ -1,0 +1,451 @@
+.article {
+
+  & blockquote:first-child,
+  & h1:first-child,
+  & h2:first-child,
+  & h3:first-child,
+  & h4:first-child,
+  & h5:first-child,
+  & h6:first-child,
+  & p:first-child,
+  & ul:first-child,
+  & ol:first-child,
+  & a:first-child,
+  & details:first-child {
+    margin-top: 0;
+  }
+
+  & blockquote:last-child,
+  & h1:last-child,
+  & h2:last-child,
+  & h3:last-child,
+  & h4:last-child,
+  & h5:last-child,
+  & h6:last-child,
+  & p:last-child,
+  & ul:last-child,
+  & ol:last-child,
+  & a:last-child,
+  & details:last-child {
+    margin-bottom: 0;
+  }
+
+  &>blockquote {
+    margin-top: 40px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+
+    @media(max-width: $phone) {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &>h1,
+  &>h2,
+  &>h3,
+  &>h4 {
+    width: 100%;
+    max-width: $article-width;
+    margin-top: 60px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+
+    @media(max-width: $phone) {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    em {
+      font-style: normal;
+      color: $Primary-3;
+    }
+  }
+
+  h1:not([class]) {
+    @include DesktopHeadline1;
+  }
+
+  h2:not([class]) {
+    @include DesktopH1-bold;
+  }
+
+  h3:not([class]) {
+    @include DesktopSubtitle2-bold;
+  }
+
+  h4:not([class]) {
+    @include DesktopH4-bold;
+  }
+
+  figure:not([class]),
+  picture:not([class]) {
+    margin-top: 40px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+
+    @media(max-width: $phone) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &>img {
+      @include Shadow-XS;
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin-right: auto;
+      margin-left: auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  }
+
+  figcaption {
+    @include DesktopBody2-regular;
+    max-width: $article-width;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    color: $Secondary-5;
+
+    @media(max-width: $phone) {
+      margin-top: 10px;
+    }
+  }
+
+  &>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+
+    &:not(:first-child) {
+      margin-top: 50px;
+
+      @media(max-width: $phone) {
+        margin-top: 30px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 50px;
+
+      @media(max-width: $phone) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &>h1:not([class]),
+  &>h2:not([class]),
+  &>h3:not([class]),
+  &>h4:not([class]),
+  &>p:not([class]) {
+    text-align: center;
+  }
+
+  p:not([class]) {
+    max-width: $article-width;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+
+    @media(max-width: $phone) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    b {
+      display: inline;
+      font-weight: 500;
+    }
+  }
+
+  a:not([class]) {
+    text-decoration: none;
+    color: $Primary-3;
+    transition:
+      opacity 0.3s,
+      color 0.3s;
+
+    &:hover {
+      @media(min-width: $desktop-only) {
+        opacity: 0.8;
+      }
+    }
+
+    &:active {
+      color: $Primary-2;
+      opacity: 1;
+    }
+  }
+
+  b:not([class]) {
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 500;
+  }
+
+  &>b {
+    display: block;
+    max-width: $article-width;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    @media(max-width: $phone) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul:not([class]) {
+    max-width: $article-width;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+    padding: 0;
+    list-style: none;
+
+    @media(max-width: $phone) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    li:not([class]) {
+      position: relative;
+      margin-right: auto;
+      margin-bottom: 20px;
+      margin-left: auto;
+      padding: 0;
+      padding-left: 20px;
+
+      @media(max-width: $phone) {
+        margin-bottom: 20px;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:before {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $Primary-2;
+        content: '';
+      }
+    }
+  }
+
+  ol:not([class]) {
+    max-width: $article-width;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+    padding: 0;
+    list-style: none;
+    counter-reset: lvl1;
+
+    @media(max-width: $phone) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    li:not([class]) {
+      position: relative;
+      margin-right: auto;
+      margin-bottom: 20px;
+      margin-left: auto;
+      padding: 0;
+      counter-increment: lvl1;
+
+      @media(max-width: $phone) {
+        margin-bottom: 20px;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:before {
+        content: counter(lvl1) '. ';
+      }
+    }
+  }
+
+  details:not([class]) {
+    position: relative;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+    padding-bottom: 30px;
+
+    @media(max-width: $phone) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+    }
+
+    &[open] {
+
+      summary {
+        margin-bottom: 20px;
+
+        &:before {
+          content: 'Свернуть';
+        }
+
+        &:after {
+          opacity: 0;
+        }
+      }
+    }
+
+    summary {
+      display: flex;
+      cursor: pointer;
+
+      &:before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $Primary-5;
+        content: 'Развернуть';
+        flex-shrink: 0;
+      }
+
+      &:after {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        transition: opacity 0.3s;
+        opacity: 1;
+        pointer-events: none;
+        background: linear-gradient(180deg, transparent, #ffffff 100%);
+        content: '';
+
+        @media(max-width: $phone) {
+          bottom: 20px;
+          height: 15px;
+        }
+      }
+    }
+  }
+
+  .layout-columns {
+
+    &:not(:first-child) {
+      margin-top: 100px;
+
+      @media(max-width: $phone) {
+        margin-top: 40px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 100px;
+
+      @media(max-width: $phone) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .slider {
+
+    &:not(:first-child) {
+      margin-top: 50px;
+
+      @media(max-width: $phone) {
+        margin-top: 30px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 50px;
+
+      @media(max-width: $phone) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+
+    &--column-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      @media(max-width: $tablet) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  }
+}

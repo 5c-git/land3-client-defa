@@ -1,0 +1,138 @@
+.button {
+  @include DesktopBody1-medium;
+  display: inline-grid;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding-top: 4px;
+  padding-right: 15px;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  color: $Primary-1;
+  background-color: $Primary-5;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+  grid-auto-flow: column;
+  gap: 6px;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  @media(max-width: $phone) {
+    width: 100%;
+    min-height: 40px;
+  }
+
+  &:not(.button--transparent):not(.button--blue):not(:disabled):not(.button--no-border):hover {
+    @media(min-width: $desktop-only) {
+      background-color: $Secondary-7;
+    }
+  }
+
+  &:not(.button--transparent):not(.button--blue):not(:disabled):not(.button--no-border):active {
+    background-color: $Secondary-8;
+  }
+
+  &:disabled {
+    background-color: $Secondary-4;
+    cursor: not-allowed;
+  }
+
+  svg {
+    fill: currentcolor;
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+
+  span {
+    pointer-events: none;
+  }
+
+  &--transparent {
+    color: $Primary-5;
+    background-color: transparent;
+    border-color: $Primary-5;
+
+    &:not(:disabled):hover {
+      @media(min-width: $desktop-only) {
+        color: $Primary-1;
+        background-color: $Primary-5;
+        border-color: $Primary-5;
+
+        del {
+          color: $Primary-1;
+        }
+      }
+    }
+
+    &:not(:disabled):active {
+      color: $Primary-1;
+      background-color: $Secondary-8;
+      border-color: $Secondary-8;
+
+      del {
+        color: $Primary-1;
+      }
+    }
+
+    &:disabled {
+      color: $Secondary-5;
+      border-color: $Secondary-2;
+    }
+
+    del {
+      color: $Secondary-5;
+      transition: color 0.3s;
+    }
+  }
+
+  &--no-border {
+    color: $Primary-5;
+    background-color: transparent;
+    border-color: transparent;
+
+    &:not(:disabled):hover {
+      @media(min-width: $desktop-only) {
+        color: $Secondary-7;
+      }
+    }
+
+    &:not(:disabled):active {
+      color: $Secondary-8;
+    }
+
+    &:disabled {
+      color: $Secondary-5;
+      background-color: transparent;
+    }
+  }
+
+  &--blue {
+    background-color: $Primary-3;
+
+    &:not(:disabled):hover {
+      @media(min-width: $desktop-only) {
+        background-color: $Primary-4;
+      }
+    }
+  }
+
+  &--big {
+    @include DesktopH3-bold;
+    min-height: 62px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+    @media(max-width: $phone) {
+      min-height: 50px;
+      padding-right: 25px;
+      padding-left: 25px;
+    }
+  }
+}

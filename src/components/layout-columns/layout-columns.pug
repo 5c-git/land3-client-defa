@@ -1,0 +1,8 @@
+mixin layout-columns(props)
+  -
+    // Подготовим строку классов
+    const extraClass = props && props.class ? ' ' + props.class : ''
+
+  div(class=`layout-columns${extraClass}`)
+    div.layout-columns__wrapper
+      block

@@ -1,0 +1,53 @@
+extends ../templates/default
+
+include ../components/intro/intro
+include ../components/slider/slider
+include ../components/layout-columns/layout-columns
+
+block main
+  
+  +intro({
+    main: true,
+  })
+
+  +layout({})
+    div.article
+      h2 Our Mission
+      p Promoting fish and seafood by helping consumers discover new flavors from the sea and the ocean — tastes of freedom and delight. Ensuring easy access to a wide variety of high-quality fish and seafood, enriching everyday diets and expanding culinary horizons.
+
+
+  +layout({})
+    div.article
+      h2 Defa group in #[em.wave-text Numbers]
+      h3 Scale and Experience
+
+      include ../components/line-banner/line-banner
+
+  +layout({})
+    div.article
+      h2 The Defa World
+      p For 30 years, the Defa group team has been dedicated to bringing only high-quality fish and seafood to our customers’ tables. Throughout this time, we have been creating exciting products, continuously implementing digital technologies across production, sales, logistics, and customer service — and we are proud of what we have achieved!
+
+      +layout-columns({
+        class: 'layout-columns--4',
+      })
+        include ../components/common-card/common-card
+
+
+  +layout({
+    class: 'layout--triangle',
+  })
+    div.article
+      h2 #[em.wave-text People] Behind Defa group 
+      p We are a close-knit team of dedicated professionals united by ambition, expertise, and passion for our work. We take pride in deep product knowledge, act with responsibility and respect toward our clients and partners, and are committed to building long-term, reliable, and mutually beneficial partnerships.
+
+      include ../components/chess-gallery/chess-gallery
+
+  +layout({})
+    div.article
+      h2 #[em.wave-text Seven Pillars] of 30 Years of Success
+
+      +layout-columns({
+        class: 'layout-columns--massonry',
+      })
+        include ../components/point-card/point-card

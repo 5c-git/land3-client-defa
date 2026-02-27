@@ -1,0 +1,28 @@
+.field {
+
+  &__input {
+    @include DesktopBody1-regular;
+    width: 100%;
+    padding-top: 13px;
+    padding-right: 14px;
+    padding-bottom: 13px;
+    padding-left: 14px;
+    border: 1px solid $Secondary-4;
+    border-radius: 4px;
+    color: $Primary-6;
+    background-color: $Primary-1;
+    transition: border-color 0.3s;
+    outline: none;
+
+    @media(max-width: $phone) {
+      @include MobileBody1-regular;
+      padding-top: 11px;
+      padding-right: 14px;
+      padding-bottom: 11px;
+    }
+
+    &::placeholder {
+      color: $Secondary-5;
+    }
+  }
+}

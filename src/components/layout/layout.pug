@@ -1,0 +1,11 @@
+mixin layout(props)
+  -
+    // Подготовим строку классов
+    const extraClass = props && props.class ? ' ' + props.class : ''
+
+  section(class=`layout${extraClass}`)
+    div.container
+      if props.title
+        h2.layout__title!=props.title
+      div.layout__wrapper
+        block

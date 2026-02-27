@@ -1,0 +1,431 @@
+$main-font: 'Roboto';
+$icon-font: 'icon';
+
+$Primary-1: #ffffff;
+$Primary-2: #32498a;
+$Primary-3: #3b73b8;
+$Primary-4: #8ecade;
+$Primary-5: #ff5c00;
+$Primary-6: #212121;
+
+$Secondary-1: #ffbc1d;
+$Secondary-2: #c4c4c4;
+$Secondary-3: #f2f0f0;
+$Secondary-4: #e2e2e2;
+$Secondary-5: #848484;
+$Secondary-6: rgba($color: #212121, $alpha: 80%);
+$Secondary-7: #ff7628;
+$Secondary-8: #d94405;
+$Secondary-9: #1f9502;
+$Secondary-10: rgba($color: #1f9502, $alpha: 20%);
+$Secondary-11: #FF1212;
+$Secondary-12: rgba($color: #ff1212, $alpha: 10%);
+$Secondary-13: rgba($color: #8ecade, $alpha: 20%);
+$Secondary-14: #223362;
+$Secondary-15: #ecf1f8;
+$Secondary-16: rgba($color: #3b73b8, $alpha: 30%);
+$Secondary-17: #f9f8f8;
+$Secondary-18: #ecf1f8;
+
+$desktop: 1300px;
+$tablet: 991px;
+$desktop-only: $tablet + 1;
+$phone: 767px;
+
+$transition-time: 0.3s;
+$article-width: 800px;
+
+@mixin scroll {
+  overflow: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+
+  /* Chrome and Safari */
+
+  &::-webkit-scrollbar {
+    width: 14px;
+  }
+
+  &::-webkit-scrollbar-track {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 4px;
+    border: 5px solid #ffffff;
+    border-radius: 8px;
+    background-color: #212121;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-right: 50px;
+  padding-left: 50px;
+
+  @media(max-width: $tablet) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  @media(max-width: $phone) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@mixin Shadow-L {
+  // box-shadow: 0 0 30px 0 rgba(60, 60, 60, 0.26);
+  filter: drop-shadow(0 0 30px rgba(60, 60, 60, 0.26));
+}
+
+@mixin Shadow-XS {
+  // box-shadow: 0 0 25px rgba(60, 60, 60, 0.18);
+  filter: drop-shadow(0 0 15px rgba(60, 60, 60, 0.25));
+}
+
+@mixin Shadow-2XS {
+  // box-shadow: 0 0 25px rgba(60, 60, 60, 0.18);
+  filter: drop-shadow(0 0 5px rgba(60, 60, 60, 0.25));
+}
+
+@mixin Shadow-cards {
+  // box-shadow: 0 0 12px rgba(60, 60, 60, 0.18);
+  filter: drop-shadow(0 0 12px rgba(60, 60, 60, 0.18));
+}
+
+@mixin link {
+  text-decoration: none;
+  color: $Primary-3;
+  transition:
+    opacity $transition-time,
+    color $transition-time;
+
+  &:hover {
+    @media(min-width: $desktop-only) {
+      opacity: 0.8;
+    }
+  }
+
+  &:active {
+    color: $Primary-2;
+    opacity: 1;
+  }
+}
+
+// fonts settings
+@mixin MobileH1-bold {
+  font-family: $main-font;
+  font-size: 26px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 30px;
+}
+
+@mixin MobileH2-bold {
+  font-family: $main-font;
+  font-size: 24px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 26px;
+}
+
+@mixin MobileH3-bold {
+  font-family: $main-font;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 20px;
+}
+
+@mixin MobileH4-bold {
+  font-family: $main-font;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 18px;
+}
+
+@mixin MobileSubtitle1-regular {
+  font-family: $main-font;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 18px;
+}
+
+@mixin MobileSubtitle1-medium {
+  font-family: $main-font;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 18px;
+}
+
+@mixin MobileBody1-regular {
+  font-family: $main-font;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 18px;
+}
+
+@mixin MobileBody1-medium {
+  font-family: $main-font;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 18px;
+}
+
+@mixin MobileBody2-regular {
+  font-family: $main-font;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 14px;
+}
+
+@mixin MobileBody2-medium {
+  font-family: $main-font;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 14px;
+}
+
+@mixin MobileBody3-regular {
+  font-family: $main-font;
+  font-size: 10px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 12px;
+}
+
+@mixin MobileBody3-medium {
+  font-family: $main-font;
+  font-size: 10px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 12px;
+}
+
+@mixin DesktopH1-bold {
+  font-family: $main-font;
+  font-size: 40px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 46px;
+
+  @media(max-width: $phone) {
+    @include MobileH1-bold;
+  }
+}
+
+@mixin DesktopH2-bold {
+  font-family: $main-font;
+  font-size: 28px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 32px;
+
+  @media(max-width: $phone) {
+    @include MobileH2-bold;
+  }
+}
+
+@mixin DesktopH3-bold {
+  font-family: $main-font;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 22px;
+
+  @media(max-width: $phone) {
+    @include MobileH3-bold;
+  }
+}
+
+@mixin DesktopH4-bold {
+  font-family: $main-font;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 20px;
+
+  @media(max-width: $phone) {
+    @include MobileH4-bold;
+  }
+}
+
+@mixin DesktopBody1-regular {
+  font-family: $main-font;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 18px;
+
+  @media(max-width: $phone) {
+    @include MobileBody1-regular;
+  }
+}
+
+@mixin DesktopBody1-medium {
+  font-family: $main-font;
+  font-size: 15px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 18px;
+
+  @media(max-width: $phone) {
+    @include MobileBody1-medium;
+  }
+}
+
+@mixin DesktopBody2-regular {
+  font-family: $main-font;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 18px;
+
+  @media(max-width: $phone) {
+    @include MobileBody2-regular;
+  }
+}
+
+@mixin DesktopBody2-medium {
+  font-family: $main-font;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 18px;
+
+  @media(max-width: $phone) {
+    @include MobileBody2-medium;
+  }
+}
+
+@mixin DesktopBody3-regular {
+  font-family: $main-font;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 16px;
+
+  @media(max-width: $phone) {
+    @include MobileBody3-regular;
+  }
+}
+
+@mixin DesktopBody3-medium {
+  font-family: $main-font;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 16px;
+
+  @media(max-width: $phone) {
+    @include MobileBody3-medium;
+  }
+}
+
+@mixin DesktopHeadline1 {
+  font-family: $main-font;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 54px;
+
+  @media(max-width: $phone) {
+    @include MobileH3-bold;
+  }
+}
+
+@mixin DesktopSubtitle1-regular {
+  font-family: $main-font;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+
+  @media(max-width: $phone) {
+    @include MobileSubtitle1-regular;
+  }
+}
+
+@mixin DesktopSubtitle1-medium {
+  font-family: $main-font;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 20px;
+
+  @media(max-width: $phone) {
+    @include MobileSubtitle1-medium;
+  }
+}
+
+@mixin DesktopSubtitle2-bold {
+  font-family: $main-font;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+
+  @media(max-width: $phone) {
+    @include MobileH3-bold;
+  }
+}
+
+@mixin DesktopSubtitle3-bold {
+  font-family: $main-font;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+
+  @media(max-width: $phone) {
+    @include MobileBody1-medium;
+  }
+}
+
+@mixin DesktopSubtitle3-regular {
+  font-family: $main-font;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+
+  @media(max-width: $phone) {
+    @include MobileBody1-regular;
+  }
+}
+
+@mixin DesktopSubtitle4-regular {
+  font-family: $main-font;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+
+  @media(max-width: $phone) {
+    @include MobileSubtitle1-regular;
+  }
+}
+
+@mixin DesktopSubtitle4-bold {
+  font-family: $main-font;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+
+  @media(max-width: $phone) {
+    @include MobileH3-bold;
+  }
+}

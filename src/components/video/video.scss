@@ -1,0 +1,141 @@
+.video {
+  margin: 0;
+  padding: 0;
+
+  &:hover {
+
+    .video__button {
+      opacity: 1;
+    }
+  }
+
+  img {
+    margin: 0 !important;
+  }
+
+  p {
+    @include DesktopBody2-regular;
+    max-width: 750px;
+    margin: 0;
+    margin-top: 20px;
+    color: $Secondary-5;
+
+    @media(max-width: $phone) {
+      margin-top: 10px;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    border-radius: 10px;
+    background-color: #000000;
+    overflow: hidden;
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    border: 0 !important;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 17, 17, 30%);
+      content: '';
+    }
+  }
+
+  &__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    display: none;
+    width: 110px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    border-radius: 15px;
+    background-color: #e92d11;
+    transition: opacity 0.3s;
+    opacity: 0.9;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    @media(max-width: $phone) {
+      width: 60px;
+      height: 60px;
+    }
+
+    &:before {
+      position: absolute;
+      top: calc(50% - 18px);
+      left: calc(50% - 10px);
+      width: 0;
+      height: 0;
+      transition: border 0.3s;
+      border-style: solid;
+      border-width: 18px 0 18px 28px;
+      border-color: transparent transparent transparent #ffffff;
+      content: '';
+
+      @media(max-width: $phone) {
+        top: calc(50% - 12px);
+        left: calc(50% - 6px);
+        border-width: 12px 0 12px 16px;
+      }
+    }
+  }
+
+  &__play-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    opacity: 0.5;
+  }
+
+  &__play {
+    position: relative;
+    z-index: 5;
+    transition: fill-opacity 0.5s;
+    fill-opacity: 0.8;
+
+    @media(max-width: $phone) {
+      width: 24px;
+      height: 30px;
+    }
+  }
+
+  &--enabled {
+    cursor: pointer;
+
+    .video__button {
+      display: flex;
+    }
+  }
+}

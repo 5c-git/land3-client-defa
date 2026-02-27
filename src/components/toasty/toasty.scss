@@ -1,0 +1,22 @@
+.toasty {
+
+  img {
+    display: block;
+    width: 256px;
+    height: auto;
+
+    @media(max-width: $phone) {
+      width: 150px;
+    }
+  }
+
+  &__caption {
+    @include DesktopH1-bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    color: $Primary-3;
+    transform-origin: center center; // нужно для gsap scale bounce
+  }
+}

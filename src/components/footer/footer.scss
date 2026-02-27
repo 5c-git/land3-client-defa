@@ -1,0 +1,131 @@
+.footer {
+  color: $Secondary-6;
+  background-color: $Secondary-3;
+
+  @media(max-width: $phone) {
+    text-align: center;
+  }
+
+  @media print {
+    display: none;
+  }
+
+  &__main {
+    @include DesktopBody1-regular;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @media(max-width: $tablet) {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    @media(max-width: $phone) {
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__download {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $Primary-3;
+    transition:
+      opacity $transition-time,
+      color $transition-time;
+    column-gap: 6px;
+
+    &:hover {
+      @media(min-width: $desktop-only) {
+        opacity: 0.8;
+      }
+    }
+
+    &:active {
+      color: $Primary-2;
+      opacity: 1;
+    }
+
+    svg {
+      flex-shrink: 0;
+      fill: currentcolor;
+    }
+  }
+
+  &__bottom {
+    @include DesktopBody2-regular;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid $Secondary-4;
+    column-gap: 40px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+
+    @media(max-width: $phone) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__copyright {
+    margin: 0;
+
+    @media(max-width: $phone) {
+      order: 1;
+    }
+  }
+
+  &__link {
+    max-width: 425px;
+    text-decoration: none;
+    color: $Secondary-6;
+    transition:
+      opacity $transition-time,
+      color $transition-time;
+
+    &:hover {
+      @media(min-width: $desktop-only) {
+        opacity: 0.8;
+      }
+    }
+
+    &:active {
+      color: $Primary-6;
+      opacity: 1;
+    }
+
+    svg {
+      fill: currentcolor;
+    }
+
+    address {
+      font-style: normal;
+    }
+
+    &--5corners {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      color: $Secondary-5;
+      gap: 5px;
+
+      @media(max-width: $tablet) {
+        margin-left: unset;
+      }
+
+      @media(max-width: $phone) {
+        order: 1;
+      }
+    }
+  }
+}

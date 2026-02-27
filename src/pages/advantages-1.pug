@@ -1,0 +1,61 @@
+extends ../templates/default
+
+include ../components/intro/intro
+include ../components/layout-columns/layout-columns
+
+block main
+  
+  +intro({
+    advantages: true,
+  })
+
+  +layout({})
+    h2.visually-hidden Advantages Defa Group
+    
+    div.article
+      +layout-columns({
+        class: 'layout-columns--2',
+      })
+        figure
+          img(src="./assets/images/article-image-1.png", alt="")
+        div
+          h3 30+ Years of Excellence in Fish & Seafood Import
+          p Defa group is a direct importer of fish and seafood from over 20 countries. With more than 30 years in the Russian wholesale market, we are among the country’s top three importers.
+          p Our network of six outlets provides a reliable logistics and distribution backbone. Each year, we expand our customer base and delivery routes, ensuring consistent and scalable supply.
+
+
+      +layout-columns({
+        class: 'layout-columns--2',
+      })
+        div
+          h3 Product Quality
+          p We collaborate exclusively with full-cycle manufacturers, closely monitor compliance with specifications, and guarantee that all products meet declared standards.
+          p Our quality control processes ensure full compliance with labeling and technical regulations, including glaze levels, size grading, piece count, uniformity, and all key product parameters.
+
+        figure
+          img(src="./assets/images/article-image-2.png", alt="")
+
+
+      +layout-columns({
+        class: 'layout-columns--2',
+      })
+        figure
+          img(src="./assets/images/article-image-3.png", alt="")
+          
+        div
+          h3 Loyalty Program
+          p Defa group offers a comprehensive partner support program designed to strengthen our clients’ market positions.
+          p We provide marketing and sales support materials, including professional photo and video content, product reviews and presentations, recipes, staff training, and promotional activities such as campaigns, contests, and bonus shipments.
+
+
+      +layout-columns({
+        class: 'layout-columns--2',
+      })
+        div
+          h3 Convenient Online Ordering
+          p #[b Dedicated Account Manager] — a single point of contact for all operational matters.
+          p #[b Flexible Wholesale Terms] — customized supply conditions tailored to your business needs.
+          p #[b Efficient Document Management] — full support for Electronic Data Interchange (EDI).
+
+        figure
+          img(src="./assets/images/article-image-4.png", alt="")
