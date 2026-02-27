@@ -1700,6 +1700,14 @@ summary::-webkit-details-marker {
   z-index: 6;
   background-color: #ffffff;
 }
+@media (max-width: 991px) {
+  .header__top {
+    position: sticky;
+    z-index: 5;
+    top: 0;
+    transition: transform 0.3s, filter 0.3s, background-color 0.3s;
+  }
+}
 .header__top-wrapper {
   display: flex;
   flex-direction: row;
@@ -1890,9 +1898,21 @@ summary::-webkit-details-marker {
   filter: drop-shadow(0 0 30px rgba(60, 60, 60, 0.26));
   background-color: #ffffff;
 }
+@media (max-width: 991px) {
+  .header--fixed .header__top {
+    filter: drop-shadow(0 0 30px rgba(60, 60, 60, 0.26));
+    background-color: #ffffff;
+  }
+}
 .header--hidden .header__main {
   filter: drop-shadow(0 0 30px rgba(60, 60, 60, 0.26));
   transform: translateY(-120%);
+}
+@media (max-width: 991px) {
+  .header--hidden .header__top {
+    filter: drop-shadow(0 0 30px rgba(60, 60, 60, 0.26));
+    transform: translateY(-120%);
+  }
 }
 @media (max-width: 991px) {
   .header--dropdown .header__burger span {
@@ -1921,6 +1941,12 @@ summary::-webkit-details-marker {
   position: relative;
   margin-top: -100px;
   padding-top: 180px;
+}
+@media (max-width: 767px) {
+  .intro {
+    margin-top: -100px;
+    padding-top: 130px;
+  }
 }
 .intro__title {
   font-family: "Roboto";

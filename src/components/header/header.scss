@@ -6,6 +6,16 @@
     position: relative;
     z-index: 6;
     background-color: $Primary-1;
+
+    @media(max-width: $tablet) {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      transition:
+        transform $transition-time,
+        filter $transition-time,
+        background-color $transition-time;
+    }
   }
 
   &__top-wrapper {
@@ -214,18 +224,34 @@
   }
 
   &--fixed {
+    .header {
+      &__main {
+        @include Shadow-L;
+        background-color: $Primary-1;
+      }
 
-    .header__main {
-      @include Shadow-L;
-      background-color: $Primary-1;
+      &__top {
+        @media(max-width: $tablet) {
+          @include Shadow-L;
+          background-color: $Primary-1;
+        }
+      }
     }
   }
 
   &--hidden {
+    .header {
+      &__main {
+        @include Shadow-L;
+        transform: translateY(-120%);
+      }
 
-    .header__main {
-      @include Shadow-L;
-      transform: translateY(-120%);
+      &__top {
+        @media(max-width: $tablet) {
+          @include Shadow-L;
+          transform: translateY(-120%);
+        }
+      }
     }
   }
 
